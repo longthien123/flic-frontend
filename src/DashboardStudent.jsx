@@ -1,0 +1,24 @@
+import { Outlet } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import SideBarStudent from "./components/SideBarStudent";
+
+function DashboardStudent() {
+  return (
+    <>
+      <Header />
+      <div className="flex min-h-screen ">
+        {/* Sidebar bên trái */}
+        <SideBarStudent />
+
+        {/* Nội dung trang con (Outlet) bên phải */}
+        <div className="dark:bg-[#1c1e21] flex-1 p-4">
+          <Outlet />
+        </div>
+      </div>
+      <Footer />
+    </>
+  );
+}
+
+export default DashboardStudent;
