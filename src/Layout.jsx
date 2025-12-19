@@ -66,6 +66,7 @@ import AssignmentManage from "./pages/lecturer/AssignmentManage";
 import ScrollToTop from "./components/ScrollToTop";
 import UserManagement from "./pages/admin/UserManagement";
 import ChangePassword from "./pages/auth/ChangePassword";
+import DashboardStaff from "./DashboardStaff";
 const NotFound = () => {
   const navigate = useNavigate()
 return (
@@ -174,6 +175,15 @@ const Layout = () => {
 
             <Route path="newAccount" element={<AddAccount />} />
             <Route path="userManagement" element={<UserManagement />} />
+          </Route>
+        </Route>
+        <Route element={<RequireAuth roles={["ACADEMIC_STAFF"]} />}>
+          <Route path="staff" element={<DashboardStaff />}>
+            <Route index element={<CourseManagement />} />
+            <Route path="courseManagement" element={<CourseManagement />} />
+            <Route path="addcourse" element={<AddCourse />} />
+            <Route path="courses/:id/edit" element={<EditCourse />} />
+            <Route path="courses/:id" element={<CourseDetailAdmin />} />
           </Route>
         </Route>
 

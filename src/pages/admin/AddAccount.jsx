@@ -100,6 +100,7 @@ const [email, setEmail] = useState("");
               <option value="STUDENT">HỌC VIÊN</option>
               <option value="INSTRUCTOR">GIẢNG VIÊN</option>
               <option value="ADMIN">QUẢN TRỊ VIÊN</option>
+              <option value="ACADEMIC_STAFF">GIÁO VỤ</option>
             </select>
             </div>
           </div>

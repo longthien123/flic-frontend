@@ -10,6 +10,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const isRoute = import.meta.env.VITE_IS_ROUTE;
   const validateEmail = (email) => {
     return String(email)
       .toLowerCase()
@@ -39,7 +40,6 @@ const handleLogin = async (event) => {
     return;
   }
 
-  toast.success("Đăng nhập thành công!");
   sessionStorage.setItem("access_token", data.token);
 
   const decoded = jwtDecode(data.token);
@@ -47,16 +47,29 @@ const handleLogin = async (event) => {
   // Điều hướng theo role
   switch (decoded.role) {
     case "USER":
+      toast.success("Đăng nhập thành công!");
       navigate("/");
       break;
     case "STUDENT":
+      toast.success("Đăng nhập thành công!");
       navigate("/student");
       break;
     case "INSTRUCTOR":
+      toast.success("Đăng nhập thành công!");
       navigate("/lecturer");
       break;
     case "ADMIN":
-      navigate("/admin");
+      if (isRoute === 'true'){
+        toast.success("Đăng nhập thành công!");
+        navigate("/admin");
+      }else{
+        toast.error("Admin không được phép đăng nhập ở đây");
+        sessionStorage.removeItem("access_token");
+      }
+      break;
+    case "ACADEMIC_STAFF":
+      toast.success("Đăng nhập thành công!");
+      navigate("/staff");
       break;
     default:
       toast.error("Vai trò không hợp lệ");

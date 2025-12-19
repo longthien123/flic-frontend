@@ -17,6 +17,8 @@ const Home = () => {
       let courses = await getCourse();
       setDataCourse(courses);
    }
+   console.log(dataCourse, "dataCourse");
+   
    useEffect(() => {
     AOS.init({ duration: 1000, once: true }); // once: true => chỉ chạy 1 lần
   }, []);
