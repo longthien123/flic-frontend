@@ -256,7 +256,7 @@ useEffect(() => {
                       <button
                         className="bg-blue-500 hover:bg-blue-600 p-2 rounded-md text-white"
                         title="Sửa"
-                        onClick={() => navigate(`/admin/courses/${c.id}/edit`, { state: { course: c } })}
+                        onClick={() => navigate(`../courses/${c.id}/edit`, { state: { course: c } })}
                       >
                         <Pencil size={16} />
                       </button>
@@ -275,7 +275,7 @@ useEffect(() => {
                       <button
                         className="bg-gray-500 hover:bg-gray-600 p-2 rounded-md text-white"
                         title="Xem"
-                        onClick={() => navigate(`/admin/courses/${c.id}`, { state: { course: c } })}
+                        onClick={() => navigate(`../courses/${c.id}`, { state: { course: c } })}
                       >
                         <Eye size={16} />
                       </button>
